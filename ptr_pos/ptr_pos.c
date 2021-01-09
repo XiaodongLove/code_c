@@ -3,7 +3,9 @@
 
 int main() {
     int urn[5] = {100, 200, 300, 400, 500};
+    char m[5] = {0};
     int *ptr1, *ptr2, *ptr3;
+    char *ptr4;
 
     //取址、赋值
     ptr1 = urn;             //把一个地址赋值给指针
@@ -26,6 +28,9 @@ int main() {
 
     printf("ptr1 + 1 = %p, ptr2 - 1 = %p\n", ptr1 + 1, ptr2 +1);
 
-    printf("hello world!");
+    printf("size int in macos %ld\n", sizeof(int));
+
+    ptr4 = m;
+    printf("ptr4 = %p, ptr4 + 1 = %p\n", ptr4, ptr4 + 1);
     return 0;
 }

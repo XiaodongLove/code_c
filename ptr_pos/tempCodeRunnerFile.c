@@ -1,0 +1,1 @@
+printf("ptr4 = %p, ptr4 + 1 = %p\n", ptr4, ptr4 + 1);
