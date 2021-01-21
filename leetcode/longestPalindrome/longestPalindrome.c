@@ -18,7 +18,9 @@ bool islongest(char *s, int start, int end)
     }
 
     while (start < end) {
-        if(s[++start] != s[--end])
+        //printf("%c, %c\n", s[start++], s[end--]);
+        
+        if(s[start++] != s[end--])
             return false;
     }
 
@@ -46,7 +48,7 @@ char * longestPalindrome(char * s)
         /* code */
         for (j = i + 1; j < length; j++) {
             //size大小为 j - i,  判断s[i:j]是不是回文子串
-            if (islongest(s, i, j) && ((max_long[1] - max_long[0]) <= j - i)) {
+            if (islongest(s, i, j) && ((max_long[1] - max_long[0]) < j - i)) {
                 max_long[0] = i;
                 max_long[1] = j;
             }
@@ -56,12 +58,12 @@ char * longestPalindrome(char * s)
     for (i = max_long[0]; i <= max_long[1]; i++) {
         longest[i - max_long[0]] = s[i];
     }
-    longest[i] = '\0';
+    longest[i - max_long[0]] = '\0';
     return longest;
 }
 
 int main() {
-    char *s = "abcdefgfedcbaee";
+    char *s = "cbbd";
     char *b = NULL;
 
     b = longestPalindrome(s);
